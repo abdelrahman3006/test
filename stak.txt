@@ -1,0 +1,116 @@
+/*#include <stdio.h>
+#include <stdlib.h>
+
+
+typedef struct
+{
+    int top;
+    int a[6];
+
+}stack;
+
+void init(stack*p)
+{
+    p->top=-1;
+}
+void stack_push(stack*p,int data)
+{
+    if(p->top==4)
+        printf("this stack is full");
+    else
+    {
+        p->top++;
+        p->a[p->top]=data;
+    }
+}
+int stack_pop(stack*p)
+{
+    int data;
+    if(p->top==-1)
+        printf("this stack is empty");
+    else
+    {
+
+        data=p->a[p->top];
+        p->top--;
+    }
+    return data;
+}
+
+int main()
+{
+stack x;
+init(&x);
+stack_push(&x,5454);
+printf("%d",stack_pop(&x));
+    return 0;
+}*/
+
+
+//*************************************************************************************************************************************************
+
+//queue*********************************************************************************************************************************************
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+typedef struct
+{
+    int head;
+    int tial;
+    int a[6];
+
+}queue;
+
+void init(queue*p)
+{
+    p->head=0;
+    p->tial=p->head;
+}
+void queue_push(queue*p,int data)
+{
+    if(p->head==6)
+        printf("this queue is full");
+    else
+    {
+
+        p->a[p->tial]=data;
+         p->tial++;
+    }
+}
+int queue_pop(queue*p)
+{
+    int data;
+    if(p->tial==p->head)
+        printf("this queue is empty");
+    else
+    {
+
+        data=p->a[p->head];
+        for(int i=0;i<p->tial-1;i++)
+        {
+            p->a[i]=p->a[i+1];
+        }
+        p->tial--;
+    }
+    return data;
+}
+
+int main()
+{
+queue x;
+init(&x);
+queue_push(&x,54500004);
+queue_push(&x,54544);
+queue_push(&x,8);
+queue_push(&x,5454);
+printf("%d\n",queue_pop(&x));
+printf("%d\n",queue_pop(&x));
+printf("%d\n",queue_pop(&x));
+
+
+    return 0;
+}
+
